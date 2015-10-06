@@ -1,0 +1,55 @@
+{
+    "name": "TestModule",
+    "settings": {
+        "cmd": {
+            "license": "",
+            "cmdVersion": "",
+            "frameworkVersion": ""
+        },
+        "canvasControls": {
+            "viewportSize": {
+                "name": "Auto Expand",
+                "builtIn": true,
+                "height": null,
+                "width": null
+            }
+        },
+        "urlPrefix": "http://localhost/TestModule/",
+        "exportPath": "",
+        "spacesToIndent": 4,
+        "sdkPath": "",
+        "lineEnding": "LF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "buildShouldOverwriteIndex": true,
+        "generateArchitectVersion": true,
+        "projectHasEnabledWebServer": false,
+        "lockUrlPrefix": false,
+        "installStatus": "Not Installed",
+        "displayfield-ExtBox1-1121-inputEl": "a new version of the framework is available"
+    },
+    "xdsVersion": "3.1.0",
+    "xdsBuild": 1943,
+    "schemaVersion": 1,
+    "upgradeVersion": 300000000007,
+    "framework": "ext42",
+    "viewOrderMap": {
+        "view": [
+            "248a284a-95ac-4f15-8c91-e78968784369"
+        ],
+        "store": [
+            "088f99ff-f1a6-4ab0-80bd-f47f43e930a4",
+            "707ea874-f05c-42fb-a2ea-fe9df91ff497",
+            "ed2575fd-b89d-47a1-8cc5-7d914e559cd8",
+            "2ae9d539-c023-4819-8540-1b1a64dab9c6"
+        ],
+        "controller": [],
+        "model": [],
+        "resource": [
+            "bf128919-54bd-4b81-a787-d371584d7eec"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}
