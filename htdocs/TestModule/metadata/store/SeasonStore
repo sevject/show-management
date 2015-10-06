@@ -1,0 +1,86 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "SeasonStore",
+        "storeId": "SeasonStore"
+    },
+    "name": "MyJsonStore",
+    "designerId": "ed2575fd-b89d-47a1-8cc5-7d914e559cd8",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/TestModule/StoreResource.php?action=loadSeasons"
+            },
+            "name": "MyAjaxProxy2",
+            "designerId": "392a873a-4141-45c5-ba4e-66ad2386fe98",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "rows"
+                    },
+                    "name": "MyJsonReader2",
+                    "designerId": "59358862-fd8a-462e-bba1-55a600935d19"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Season",
+                "type": "string"
+            },
+            "name": "MyField10",
+            "designerId": "54e6f84f-904e-441c-960b-91c1255125ef"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onJsonstoreBeforeLoad",
+                "implHandler": [
+                    "var seriesCombo = Ext.ComponentQuery.query('#seriesCombo')[0];",
+                    "",
+                    "if (seriesCombo && seriesCombo.getValue()) {",
+                    "",
+                    "    operation.params = {",
+                    "        'SeriesID' : seriesCombo.getValue()",
+                    "    };",
+                    "",
+                    "    return true;",
+                    "}",
+                    "return false;"
+                ],
+                "name": "beforeload",
+                "scope": "me"
+            },
+            "name": "onJsonstoreBeforeLoad",
+            "designerId": "b47fc49a-5429-4d44-a6c7-500d735c603d"
+        }
+    ]
+}

@@ -1,0 +1,196 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "designer|userClassName": "EpisodeStore",
+        "pageSize": 50,
+        "storeId": "EpisodeStore"
+    },
+    "name": "MyJsonStore",
+    "designerId": "707ea874-f05c-42fb-a2ea-fe9df91ff497",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/TestModule/StoreResource.php?action=loadEpisodes"
+            },
+            "name": "MyAjaxProxy1",
+            "designerId": "e277a584-f8f4-4bf8-81d6-7521ab2f4d70",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "rows"
+                    },
+                    "name": "MyJsonReader1",
+                    "designerId": "11714992-7f72-4a10-98b2-f2ccf5d3723c"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "EpisodeID",
+                "type": "int"
+            },
+            "name": "MyField2",
+            "designerId": "2901c7ed-a4be-4fb8-88a3-7efb5da449a9"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "EpisodeNr",
+                "type": "string"
+            },
+            "name": "MyField3",
+            "designerId": "353ac87a-a19c-4898-bd0f-120b75caa571"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Season",
+                "type": "string"
+            },
+            "name": "MyField8",
+            "designerId": "eedfff4a-3a62-4586-940d-348dba7362d6"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Title",
+                "type": "string"
+            },
+            "name": "MyField4",
+            "designerId": "698e2039-a0b1-412b-a7df-b915888d9570"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dateFormat": "Y-m-d",
+                "name": "AirDate",
+                "type": "date"
+            },
+            "name": "MyField5",
+            "designerId": "98c245b3-b230-4dd6-9fe9-057bf814d513"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Watched",
+                "type": "boolean"
+            },
+            "name": "MyField6",
+            "designerId": "d43eccc7-2020-40a9-afe8-e2801e1a1f0d"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "SeriesID",
+                "type": "int"
+            },
+            "name": "MyField7",
+            "designerId": "1d311a53-c27d-4c73-857b-8fa522a00fc0"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "SeriesTitle",
+                "type": "string"
+            },
+            "name": "MyField9",
+            "designerId": "e7880a2d-7d30-4221-ac3d-dcd37cbfabbd"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Description"
+            },
+            "name": "MyField11",
+            "designerId": "a44191bb-307d-4a0b-a8f8-4c0c287fccd2"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onJsonstoreBeforeLoad",
+                "implHandler": [
+                    "var seriesCombo = Ext.ComponentQuery.query('#seriesCombo')[0],",
+                    "    seasonCombo = Ext.ComponentQuery.query('#seasonCombo')[0],",
+                    "    watchedState = Ext.ComponentQuery.query('#watchedState')[0];",
+                    "",
+                    "store.getProxy().setExtraParam('SeriesID', seriesCombo.getValue());",
+                    "store.getProxy().setExtraParam('Season', seasonCombo.getValue());",
+                    "store.getProxy().setExtraParam('Watched', watchedState.getValue());"
+                ],
+                "name": "beforeload",
+                "scope": "me"
+            },
+            "name": "onJsonstoreBeforeLoad",
+            "designerId": "01c9952f-b0b5-4c05-9f59-dde5e8500adc"
+        }
+    ]
+}

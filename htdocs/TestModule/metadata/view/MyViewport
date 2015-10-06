@@ -1,0 +1,822 @@
+{
+    "type": "Ext.container.Viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userClassName": "MyViewport",
+        "layout": "fit"
+    },
+    "name": "MyViewport",
+    "designerId": "248a284a-95ac-4f15-8c91-e78968784369",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout": "fit",
+                "title": ""
+            },
+            "name": "MyPanel",
+            "designerId": "9ed95dca-19d4-4560-bec1-cfa6332bc34c",
+            "cn": [
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoScroll": true,
+                        "itemId": "grid",
+                        "store": "EpisodeStore",
+                        "title": ""
+                    },
+                    "name": "MyGridPanel",
+                    "designerId": "14fa75f8-543c-4f5b-96b5-85ba2b14cea2",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "SeriesTitle",
+                                "flex": 1,
+                                "text": "Series"
+                            },
+                            "name": "MyColumn3",
+                            "designerId": "cafc5993-3df0-445d-bee2-1399a2463985",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value",
+                                            "metaData",
+                                            "record",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "store",
+                                            "view"
+                                        ],
+                                        "fn": "renderer",
+                                        "implHandler": [
+                                            "var rec,",
+                                            "    seriesCombo = Ext.ComponentQuery.query('#seriesCombo')[0],",
+                                            "    index = seriesCombo.getStore().findExact('SeriesID', record.get('SeriesID'));",
+                                            "",
+                                            "if (index !== -1) {",
+                                            "    rec = seriesCombo.getStore().getAt(index);",
+                                            "    ",
+                                            "    return rec.get('SeriesTitle');",
+                                            "}"
+                                        ]
+                                    },
+                                    "name": "renderer",
+                                    "designerId": "711901c7-0f7e-49a3-9174-438102268879"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "Season",
+                                "text": "Season"
+                            },
+                            "name": "MyColumn2",
+                            "designerId": "f7b787fe-97f0-4ed9-a736-0fb0848767e5"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "EpisodeNr",
+                                "text": "Nr."
+                            },
+                            "name": "MyColumn1",
+                            "designerId": "d7da0228-9a0e-4654-9772-30718a35dfd5"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "Title",
+                                "flex": 2,
+                                "text": "Title"
+                            },
+                            "name": "MyColumn",
+                            "designerId": "30dd1f16-0837-41f4-a003-3557d64d205d",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value",
+                                            "metaData",
+                                            "record",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "store",
+                                            "view"
+                                        ],
+                                        "fn": "renderer",
+                                        "implHandler": [
+                                            "metaData.tdAttr = 'data-qtip=\"' + record.get('Description') + '\"';",
+                                            "return value;"
+                                        ]
+                                    },
+                                    "name": "renderer",
+                                    "designerId": "33b3556c-d57a-46b4-a2ee-80e365b85780"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.column.Date",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "AirDate",
+                                "flex": 1,
+                                "format": "d.m.Y",
+                                "text": "First Aired"
+                            },
+                            "name": "MyDateColumn",
+                            "designerId": "858771c3-5f67-450d-98ab-617f7b06cae6"
+                        },
+                        {
+                            "type": "Ext.grid.column.CheckColumn",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "Watched",
+                                "text": "Watched"
+                            },
+                            "name": "MyCheckColumn3",
+                            "designerId": "b5bb9f22-12ef-4a8c-a943-fc1c8df1bcdb",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Checkbox",
+                                    "reference": {
+                                        "name": "editor",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyCheckbox",
+                                    "designerId": "5d976ecc-9114-4b88-9a77-ec7b805f24bb"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyGridView",
+                            "designerId": "584f3c1c-baea-4b5f-b730-4e77381a385f"
+                        },
+                        {
+                            "type": "Ext.toolbar.Toolbar",
+                            "reference": {
+                                "name": "dockedItems",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": "top"
+                            },
+                            "name": "MyToolbar",
+                            "designerId": "ac57e415-c0ff-4f8d-b05b-fa74f6ba7b2d",
+                            "cn": [
+                                {
+                                    "type": "Ext.Img",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": 55,
+                                        "itemId": "seriesBanner",
+                                        "layout|flex": null,
+                                        "src": null,
+                                        "width": 300
+                                    },
+                                    "name": "MyImg",
+                                    "designerId": "6669fdc4-fd73-433f-98fb-6e559b347613"
+                                },
+                                {
+                                    "type": "Ext.form.FieldSet",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "container|align": "stretch",
+                                        "container|padding": 5,
+                                        "layout": "hbox",
+                                        "layout|flex": null,
+                                        "title": "Filter"
+                                    },
+                                    "name": "MyFieldSet",
+                                    "designerId": "2298f130-5ddb-45d2-b811-60f9c947f3f6",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.field.ComboBox",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": null,
+                                                "displayField": "SeriesTitle",
+                                                "emptyText": "All Series",
+                                                "fieldLabel": "Series:",
+                                                "itemId": "seriesCombo",
+                                                "labelWidth": 50,
+                                                "layout|flex": 1,
+                                                "selectOnFocus": true,
+                                                "store": "SeriesStore",
+                                                "value": [
+                                                    "0"
+                                                ],
+                                                "valueField": "SeriesID"
+                                            },
+                                            "name": "MyComboBox",
+                                            "designerId": "650dc7a4-4426-41cb-9729-dc1fb07a94fe",
+                                            "cn": [
+                                                {
+                                                    "type": "basiceventbinding",
+                                                    "reference": {
+                                                        "name": "listeners",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "onComboboxChange",
+                                                        "implHandler": [
+                                                            "var rec, index,",
+                                                            "    grid = Ext.ComponentQuery.query('#grid')[0],",
+                                                            "    seasonCombo = Ext.ComponentQuery.query('#seasonCombo')[0],",
+                                                            "    seriesBanner = Ext.ComponentQuery.query('#seriesBanner')[0];",
+                                                            "",
+                                                            "if (newValue === 0) {",
+                                                            "    seasonCombo.setValue('ALL');",
+                                                            "}",
+                                                            "",
+                                                            "seasonCombo.setDisabled(newValue === 0);",
+                                                            "",
+                                                            "if (grid) {",
+                                                            "    grid.getStore().loadPage(1);",
+                                                            "",
+                                                            "    index = field.getStore().findExact('SeriesID', field.getValue());",
+                                                            "",
+                                                            "    if (index !== -1) {",
+                                                            "        rec = field.getStore().getAt(index);",
+                                                            "",
+                                                            "        if (!Ext.isEmpty(rec.get('SeriesBanner'))) {",
+                                                            "            seriesBanner.setSrc('http://thetvdb.com/banners/' + rec.get('SeriesBanner'));",
+                                                            "            return;",
+                                                            "        }",
+                                                            "    }",
+                                                            "",
+                                                            "    seriesBanner.setSrc();",
+                                                            "}"
+                                                        ],
+                                                        "name": "change",
+                                                        "scope": "me"
+                                                    },
+                                                    "name": "onComboboxChange",
+                                                    "designerId": "bb9961e1-d093-4453-9f0c-8cd4c9519212"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.toolbar.Spacer",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "width": 5
+                                            },
+                                            "name": "MySpacer4",
+                                            "designerId": "362642d7-df70-49b8-a58c-01ccbe540d4d"
+                                        },
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "icon": "/TestModule/resources/delete.png",
+                                                "iconAlign": null,
+                                                "layout|flex": null,
+                                                "text": null
+                                            },
+                                            "name": "MyButton2",
+                                            "designerId": "e109aca7-3ad5-488a-879d-2931970aca3a",
+                                            "cn": [
+                                                {
+                                                    "type": "fixedfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|params": [
+                                                            "button",
+                                                            "e"
+                                                        ],
+                                                        "fn": "handler",
+                                                        "implHandler": [
+                                                            "var seriesCombo = Ext.ComponentQuery.query('#seriesCombo')[0],",
+                                                            "    grid = Ext.ComponentQuery.query('#grid')[0];",
+                                                            "",
+                                                            "if (seriesCombo.getValue()) {",
+                                                            "    Ext.Msg.confirm('Warning', 'Are you sure you want to delete ' + seriesCombo.getRawValue() + '?', function(answer) {",
+                                                            "        if (answer === 'yes') {",
+                                                            "            Ext.Ajax.request({",
+                                                            "                url: '/TestModule/StoreResource.php',",
+                                                            "                params: {",
+                                                            "                    'action' : 'deleteSeries',",
+                                                            "                    'seriesid' : seriesCombo.getValue()",
+                                                            "                },",
+                                                            "                success: function() {",
+                                                            "                    seriesCombo.getStore().reload();",
+                                                            "                    grid.getStore().reload();",
+                                                            "                }",
+                                                            "            });",
+                                                            "        }",
+                                                            "    });",
+                                                            "}"
+                                                        ]
+                                                    },
+                                                    "name": "handler",
+                                                    "designerId": "7f129902-d467-48ec-86c6-267dca49a5c6"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.toolbar.Spacer",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "width": 20
+                                            },
+                                            "name": "MySpacer",
+                                            "designerId": "92669ade-606e-425e-9748-af5339790d20"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.ComboBox",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "allQuery": "''",
+                                                "disabled": true,
+                                                "displayField": "Season",
+                                                "editable": false,
+                                                "emptyText": null,
+                                                "fieldLabel": "Season:",
+                                                "itemId": "seasonCombo",
+                                                "labelWidth": 50,
+                                                "layout|flex": 1,
+                                                "queryCaching": false,
+                                                "store": "SeasonStore",
+                                                "value": [
+                                                    "'ALL'"
+                                                ],
+                                                "valueField": "Season"
+                                            },
+                                            "name": "MyComboBox1",
+                                            "designerId": "0e22d6b2-9ab4-4d85-8260-428a2ffa1dce",
+                                            "cn": [
+                                                {
+                                                    "type": "basiceventbinding",
+                                                    "reference": {
+                                                        "name": "listeners",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "onComboboxChange1",
+                                                        "implHandler": [
+                                                            "        var grid = Ext.ComponentQuery.query('#grid')[0];",
+                                                            "",
+                                                            "        if (grid) {",
+                                                            "            grid.getStore().loadPage(1);",
+                                                            "        }"
+                                                        ],
+                                                        "name": "change",
+                                                        "scope": "me"
+                                                    },
+                                                    "name": "onComboboxChange1",
+                                                    "designerId": "5016acb6-5fb6-40ff-92ae-50221a78494f"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.toolbar.Spacer",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "width": 15
+                                            },
+                                            "name": "MySpacer3",
+                                            "designerId": "9df6198d-3094-43bd-a821-9a465fc22ffa"
+                                        },
+                                        {
+                                            "type": "Ext.form.RadioGroup",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "container|autoFlex": false,
+                                                "fieldLabel": null,
+                                                "itemId": "watchedState",
+                                                "layout|flex": 1,
+                                                "padding": null,
+                                                "value": null,
+                                                "width": 200
+                                            },
+                                            "name": "MyRadioGroup",
+                                            "designerId": "5beaf584-0e20-44e0-af22-9b76db139c58",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.form.field.Radio",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "boxLabel": "All",
+                                                        "checked": true,
+                                                        "fieldLabel": null,
+                                                        "inputValue": "-1",
+                                                        "margin": "0 10 0 0",
+                                                        "name": "watchedState"
+                                                    },
+                                                    "name": "MyRadio",
+                                                    "designerId": "9342e6d6-cf3b-47a3-98aa-77a5d3e04b9f"
+                                                },
+                                                {
+                                                    "type": "Ext.form.field.Radio",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "boxLabel": "Watched",
+                                                        "fieldLabel": null,
+                                                        "inputValue": "1",
+                                                        "margin": "0 10 0 0",
+                                                        "name": "watchedState"
+                                                    },
+                                                    "name": "MyRadio1",
+                                                    "designerId": "728ca5a6-d774-4726-914c-a8819df82a9a"
+                                                },
+                                                {
+                                                    "type": "Ext.form.field.Radio",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "boxLabel": "Not Watched",
+                                                        "fieldLabel": null,
+                                                        "inputValue": "0",
+                                                        "name": "watchedState"
+                                                    },
+                                                    "name": "MyRadio2",
+                                                    "designerId": "b9a93288-55a2-4705-ae15-01bb8d36941f"
+                                                },
+                                                {
+                                                    "type": "basiceventbinding",
+                                                    "reference": {
+                                                        "name": "listeners",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "fn": "onRadiogroupChange",
+                                                        "implHandler": [
+                                                            "        var grid = Ext.ComponentQuery.query('#grid')[0];",
+                                                            "",
+                                                            "        if (grid) {",
+                                                            "            grid.getStore().loadPage(1);",
+                                                            "        }"
+                                                        ],
+                                                        "name": "change",
+                                                        "scope": "me"
+                                                    },
+                                                    "name": "onRadiogroupChange",
+                                                    "designerId": "7ae0b084-852a-49ac-aa1b-412b2203c5d0"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.toolbar.Spacer",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null,
+                                        "width": 25
+                                    },
+                                    "name": "MySpacer1",
+                                    "designerId": "daa964d1-c6a9-406e-b3be-f0d4a015043e"
+                                },
+                                {
+                                    "type": "Ext.form.FieldSet",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "container|align": "stretch",
+                                        "layout": "hbox",
+                                        "layout|flex": null,
+                                        "padding": 5,
+                                        "title": "TheTVDB"
+                                    },
+                                    "name": "MyFieldSet2",
+                                    "designerId": "114ff7e0-3ca2-4847-aa72-2f233158889f",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.field.ComboBox",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "displayField": "SeriesName",
+                                                "fieldLabel": "Find Series",
+                                                "itemId": "findSeriesCombo",
+                                                "labelWidth": 60,
+                                                "store": "TVDBStore",
+                                                "valueField": "TVDBID",
+                                                "width": 350
+                                            },
+                                            "name": "MyComboBox2",
+                                            "designerId": "0b9e53d0-d258-409a-9f66-9d00f95f020a"
+                                        },
+                                        {
+                                            "type": "Ext.toolbar.Spacer",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "width": 5
+                                            },
+                                            "name": "MySpacer5",
+                                            "designerId": "7e1eed22-ff91-4c5d-9ecb-6a74fde295be"
+                                        },
+                                        {
+                                            "type": "Ext.button.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout|flex": 1,
+                                                "text": "Import"
+                                            },
+                                            "name": "MyButton3",
+                                            "designerId": "23c6c160-ab46-460b-ade6-597ede7bd026",
+                                            "cn": [
+                                                {
+                                                    "type": "fixedfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|params": [
+                                                            "button",
+                                                            "e"
+                                                        ],
+                                                        "fn": "handler",
+                                                        "implHandler": [
+                                                            "var myMask,",
+                                                            "    findSeriesCombo = Ext.ComponentQuery.query('#findSeriesCombo')[0],",
+                                                            "    NewSeriesTitle = findSeriesCombo.getRawValue(),",
+                                                            "    TheTVDBID = findSeriesCombo.getValue(),",
+                                                            "    seriesCombo = Ext.ComponentQuery.query('#seriesCombo')[0],",
+                                                            "    grid = Ext.ComponentQuery.query('#grid')[0];",
+                                                            "",
+                                                            "if (TheTVDBID) {",
+                                                            "",
+                                                            "    myMask = new Ext.LoadMask({target: grid, msg:\"Please wait...\"});",
+                                                            "    myMask.show();",
+                                                            "",
+                                                            "    Ext.Ajax.request({",
+                                                            "        url: '/TestModule/StoreResource.php',",
+                                                            "        params: {",
+                                                            "            'action' : 'saveNewSeries',",
+                                                            "            'title' : NewSeriesTitle,",
+                                                            "            'tvdbid' : TheTVDBID",
+                                                            "        },",
+                                                            "        success: function() {",
+                                                            "            findSeriesCombo.clearValue();",
+                                                            "",
+                                                            "            seriesCombo.getStore().load();",
+                                                            "",
+                                                            "            grid.getStore().on('load', function() {",
+                                                            "                myMask.hide();",
+                                                            "            });",
+                                                            "",
+                                                            "            grid.getStore().clearFilter();",
+                                                            "            grid.getStore().load();",
+                                                            "        },",
+                                                            "        failure: function() {",
+                                                            "            myMask.hide();",
+                                                            "        }",
+                                                            "    });",
+                                                            "}"
+                                                        ]
+                                                    },
+                                                    "name": "handler",
+                                                    "designerId": "c3d1d529-af0f-4054-a2c3-74608a29495d"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.toolbar.Fill",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout|flex": null
+                                    },
+                                    "name": "MyFill",
+                                    "designerId": "2bd5211a-9ec0-4bbc-9b1c-f6e2262a334f"
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "icon": "/TestModule/resources/disk_green.png",
+                                        "iconAlign": "top",
+                                        "layout|flex": null,
+                                        "scale": "medium",
+                                        "text": "Save",
+                                        "width": 100
+                                    },
+                                    "name": "MyButton",
+                                    "designerId": "7d1fe3c8-09ba-414e-b533-cf9e154d8ce1",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "button",
+                                                    "e"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "var grid = Ext.ComponentQuery.query('#grid')[0],",
+                                                    "    data = {};",
+                                                    "",
+                                                    "grid.getStore().getRange().forEach(function(record) {",
+                                                    "    data[record.get('EpisodeID')] = record.get('Watched');",
+                                                    "});",
+                                                    "",
+                                                    "Ext.Ajax.request({",
+                                                    "    url: '/TestModule/StoreResource.php',",
+                                                    "    params: {",
+                                                    "        'action' : 'saveEpisodeStatus',",
+                                                    "        'save_data' : Ext.encode(data)",
+                                                    "    },",
+                                                    "    success: function() {",
+                                                    "        grid.getStore().reload();",
+                                                    "    }",
+                                                    "});"
+                                                ]
+                                            },
+                                            "name": "handler",
+                                            "designerId": "f35ffeb4-109b-44e2-90d2-b7946159cc39"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.plugin.CellEditing",
+                            "reference": {
+                                "name": "plugins",
+                                "type": "array"
+                            },
+                            "codeClass": "Ext.grid.plugin.CellEditing",
+                            "name": "MyCellEditingPlugin",
+                            "designerId": "2d035971-7761-4c81-8e32-fcc1afd279eb"
+                        },
+                        {
+                            "type": "Ext.toolbar.Paging",
+                            "reference": {
+                                "name": "dockedItems",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayInfo": true,
+                                "dock": "bottom",
+                                "store": "EpisodeStore",
+                                "width": 360
+                            },
+                            "name": "MyPagingToolbar",
+                            "designerId": "d2f4c170-4006-44ae-8eb7-d1d799124d6c"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

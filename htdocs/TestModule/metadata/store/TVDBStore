@@ -1,0 +1,72 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "TVDBStore",
+        "storeId": "TVDBStore"
+    },
+    "name": "MyJsonStore",
+    "designerId": "2ae9d539-c023-4819-8540-1b1a64dab9c6",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/TestModule/StoreResource.php?action=getTVDBSeries"
+            },
+            "name": "MyAjaxProxy3",
+            "designerId": "62754841-11b2-45ee-a905-3a33f57a754f",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "rows"
+                    },
+                    "name": "MyJsonReader3",
+                    "designerId": "f83309f2-f9b7-4cce-8f72-394d60c4b53c"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "TVDBID",
+                "type": "int"
+            },
+            "name": "MyField12",
+            "designerId": "5c90033b-d105-4410-ad49-f225ad1d0a42"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "SeriesName",
+                "type": "string"
+            },
+            "name": "MyField14",
+            "designerId": "a13ec3e8-6381-4d80-809b-43afd5ad450a"
+        }
+    ]
+}

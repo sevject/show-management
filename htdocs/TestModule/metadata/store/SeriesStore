@@ -1,0 +1,87 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "designer|userClassName": "SeriesStore",
+        "storeId": "SeriesStore"
+    },
+    "name": "MyJsonStore",
+    "designerId": "088f99ff-f1a6-4ab0-80bd-f47f43e930a4",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/TestModule/StoreResource.php?action=loadSeries"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "6c7b5d21-c1a4-486a-91ca-50d7fadab69b",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "rows"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "923c1749-fa1f-47aa-bf52-f893ea42cf60"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "SeriesID",
+                "type": "int"
+            },
+            "name": "MyField",
+            "designerId": "cfdb0efd-e85f-457b-acb6-7236440c0347"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "SeriesTitle",
+                "type": "string"
+            },
+            "name": "MyField1",
+            "designerId": "dbb1755c-3f4d-4220-8c13-ee64d9703338"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "SeriesBanner",
+                "type": "string"
+            },
+            "name": "MyField13",
+            "designerId": "b6a29d39-0606-4986-8f1e-e69ff04cdb4f"
+        }
+    ]
+}
