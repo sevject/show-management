@@ -18,7 +18,6 @@ Ext.Loader.setConfig({
     enabled: true
 });
 
-// test
 Ext.application({
     stores: [
         'SeriesStore',
